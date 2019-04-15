@@ -42,7 +42,8 @@ def task_4_min_value_integers(data: List[int]) -> int:
     """
     Find and return minimum value from list
     """
-    pass
+    if not data == []:
+        return min(data)
 
 
 def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
@@ -65,14 +66,16 @@ def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
     """
-    pass
+
+    max_list = [max(x) for x in data if x != []]
+    return max(max_list)
 
 
 def task_8_sum_of_ints(data: List[int]) -> int:
     """
     Find sum of all items in given list
     """
-    pass
+    return sum(data)
 
 
 def task_9_sum_characters_positions(text: str) -> int:
@@ -88,7 +91,7 @@ def task_9_sum_characters_positions(text: str) -> int:
         >>> 532
 
     """
-    pass
+    return sum([ord(x) for x in list(text)])
 
 
 def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
