@@ -1,4 +1,6 @@
 from typing import List, Dict, Union, Generator
+import string
+import random
 
 # We will work with such dicts
 ST = Dict[str, Union[str, int]]
@@ -113,4 +115,5 @@ def task_11_create_list_of_random_characters() -> List[str]:
     Create list of 20 elements where each element is random letter from latin alphabet
 
     """
-    pass
+
+    return [random.choice(string.ascii_lowercase) for i in range(20)]
