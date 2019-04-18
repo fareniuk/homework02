@@ -22,7 +22,7 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
             dt['name'] = dt['name'].title()
     return data
 
-   
+
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
     """given_data
     Remove from dictionaries given key value
@@ -31,7 +31,10 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    pass
+    for dt in data:
+        for redundant_key in redundant_keys:
+            dt.pop(redundant_key)
+    return data
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
