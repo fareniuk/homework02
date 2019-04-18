@@ -58,17 +58,17 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     """
     Find the longest string
     """
-    mn = 20000
 
-    if data != []:
-
-        for st in data:
-            if len(str(st))<mn:
-                mn=len(str(st))
-                res=str(st)
-        return res
-    else:
+    if not data:
         return None
+    mn = len(str(data[0]))
+    res = str(data[0])
+    for st in data:
+        dump = str(st)
+        if len(dump) < mn:
+            mn = len(dump)
+            res = dump
+    return res
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
@@ -77,7 +77,9 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    pass
+    min_value = min([dt.get(key) for dt in data if dt.get(key) is not None])
+    return task_3_find_item_via_value(data, min_value)[0]
+
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
