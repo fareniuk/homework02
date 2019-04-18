@@ -31,10 +31,8 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    for dt in data:
-        for redundant_key in redundant_keys:
-            dt.pop(redundant_key)
-    return data
+
+    return [{key: value for (key, value) in dt.items() if key not in redundant_keys} for dt in data]
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
@@ -44,7 +42,8 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
         find_item_via_value([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 26)
         >>> [{'name': 'Alex', 'age': 26}]
     """
-    pass
+
+    return [dt for dt in data if value in dt.values()]
 
 
 def task_4_min_value_integers(data: List[int]) -> int:
@@ -59,7 +58,17 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     """
     Find the longest string
     """
-    pass
+    mn = 20000
+
+    if data != []:
+
+        for st in data:
+            if len(str(st))<mn:
+                mn=len(str(st))
+                res=str(st)
+        return res
+    else:
+        return None
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
