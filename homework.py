@@ -81,7 +81,6 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     return task_3_find_item_via_value(data, min_value)[0]
 
 
-
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
@@ -125,7 +124,21 @@ def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
         next(a)
         >>> 3
     """
-    pass
+
+    def check_simple(number):
+        for i in range(2, number):
+            if number % i == 0:
+                return False
+        return True
+
+    def gen_simple():
+        number = 2
+        while number <= 200:
+            if check_simple(number):
+                yield number
+            number += 1
+
+    return gen_simple()
 
 
 def task_11_create_list_of_random_characters() -> List[str]:
