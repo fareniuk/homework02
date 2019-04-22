@@ -61,7 +61,7 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
 
     if data:
         data_dict = {len(str(dt)): str(dt) for dt in data}
-        return data_dict.get(min(data_dict.keys()))
+        return data_dict.get(min(data_dict))
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
