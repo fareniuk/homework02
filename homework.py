@@ -58,7 +58,6 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     """
     Find the longest string
     """
-
     if data:
         data_dict = {len(str(dt)): str(dt) for dt in data}
         return data_dict.get(min(data_dict))
@@ -68,7 +67,6 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     """
     Find minimum value by given key
     Returns:
-
     """
     min_value = min([dt.get(key) for dt in data if dt.get(key) is not None])
     return task_3_find_item_via_value(data, min_value)[0]
