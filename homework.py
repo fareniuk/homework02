@@ -18,7 +18,7 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
     """
 
     for dt in data:
-        if dt.get('name') is not None:
+        if dt.get('name'):
             dt['name'] = dt['name'].title()
     return data
 
@@ -50,8 +50,8 @@ def task_4_min_value_integers(data: List[int]) -> int:
     """
     Find and return minimum value from list
     """
-    if not data == []:
-        return min(data)
+
+    return min(data) if data else None
 
 
 def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
@@ -59,16 +59,9 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     Find the longest string
     """
 
-    if not data:
-        return None
-    mn = len(str(data[0]))
-    res = str(data[0])
-    for st in data:
-        dump = str(st)
-        if len(dump) < mn:
-            mn = len(dump)
-            res = dump
-    return res
+    if data:
+        data_dict = {len(str(dt)): str(dt) for dt in data if data}
+        return data_dict.get(min(data_dict.keys(), key=(lambda y: data_dict[y])))
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
@@ -86,7 +79,7 @@ def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     Find max value from list of lists
     """
 
-    max_list = [max(x) for x in data if x != []]
+    max_list = [max(x) for x in data if x]
     return max(max_list)
 
 
