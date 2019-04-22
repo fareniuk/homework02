@@ -60,8 +60,8 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     """
 
     if data:
-        data_dict = {len(str(dt)): str(dt) for dt in data if data}
-        return data_dict.get(min(data_dict.keys(), key=(lambda y: data_dict[y])))
+        data_dict = {len(str(dt)): str(dt) for dt in data}
+        return data_dict.get(min(data_dict.keys()))
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
